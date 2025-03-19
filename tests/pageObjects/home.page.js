@@ -16,6 +16,6 @@ class HomePage {
     }
     
   }
-  
-  export default new HomePage();
+  module.exports = new HomePage();
+  // export default new HomePage();
   

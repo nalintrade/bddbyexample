@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-// import { useNavigate } from "react-router-dom";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -45,10 +45,13 @@ const Profile = () => {
 
       <div className="button-group">
         <button onClick={handleSave}>Save Profile</button>
+      </div>
+      <br />
+      <div className="button-group"></div>
         <button className="back-btn" onClick={() => navigate("/dashboard")}>Back to Dashboard</button>
       </div>
     </div>
-  </div>
+  
   );
 };
 
