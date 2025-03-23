@@ -1,8 +1,9 @@
+import React from 'react'; 
 import { render, screen, fireEvent } from "@testing-library/react";
 import Profile from "./Profile";
 import { MemoryRouter } from "react-router-dom";
 import { TextEncoder, TextDecoder } from "util";
-
+import '@testing-library/jest-dom';
 // Needed for Node.js test environment
 global.TextEncoder = TextEncoder;
 // @ts-expect-error
