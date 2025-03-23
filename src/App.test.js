@@ -18,7 +18,7 @@ test("renders Home page by default", () => {
       <App />
     </MemoryRouter>
   );
-  expect(screen.getByText(/Welcome to Our Platform/i)).toBeInTheDocument();
+  expect(screen.getByText(/Welcome to MercuryDemo/i)).toBeInTheDocument();
 });
 
 // ✅ Test 3: Verify Login Page Loads on Navigation
@@ -48,5 +48,5 @@ test("redirects to login if trying to access Dashboard without being logged in",
       <App />
     </MemoryRouter>
   );
-  expect(screen.getByText(/Sign in to Your Account/i)).toBeInTheDocument(); // Ensure user is not on Dashboard
+  expect(screen.getByText(/Sign in to Your Account/i)).toBeInTheDocument();
 });

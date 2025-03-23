@@ -29,7 +29,7 @@ const Dashboard = () => {
           <li><Link to="/change-plan">Change Plan</Link></li>
           <li><Link to="/move-house">Move House</Link></li>
           <li><Link to="/profile">Profile</Link></li>
-          <li><Link to="/quote">Get a Quote</Link></li>
+          <li><Link to="/get-quote">Get a Quote</Link></li>
           <li><Link to="/support">Support</Link></li>
         </ul>
       </nav>

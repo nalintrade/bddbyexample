@@ -6,7 +6,9 @@ const Home = () => {
   const navigate = useNavigate();
 
   return (
+
     <div className="home-container">
+      <div><br/></div>
       {/* Hero Section */}
       <div className="hero">
         <div className="hero-overlay"></div>
@@ -51,6 +53,7 @@ const Home = () => {
         <p>© {new Date().getFullYear()} MercuryDemo Energy. All rights reserved.</p>
       </footer>
     </div>
+
   );
 };
 
