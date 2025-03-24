@@ -9,7 +9,7 @@
         "program": "${workspaceFolder}/node_modules/@cucumber/cucumber/bin/cucumber-js",
         "args": [
           "--exit",
-          "--require", "tests/stepDefinitions/**/*.js",
+          "--require", "tests/stepDefinitions/**/*.mjs",
           "tests/features/**/*.feature"
         ],
         "console": "integratedTerminal",

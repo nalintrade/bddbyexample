@@ -19,8 +19,12 @@ report.forEach((feature, featureIndex) => {
   feature.elements.forEach((scenario, scenarioIndex) => {
     const name = `${feature.name} - ${scenario.name}`;
     const status = scenario.steps.every((step) => step.result.status === 'passed')
-      ? 'passed'
-      : 'failed';
+    ? 'passed'
+    : scenario.steps.some((step) => step.result.status === 'undefined')
+      ? 'broken'
+      : scenario.steps.some((step) => step.result.status === 'pending')
+        ? 'skipped'
+        : 'failed';
 
     const uid = crypto.randomUUID();
     const result = {
