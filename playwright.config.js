@@ -12,4 +12,7 @@ export default defineConfig({
     baseURL: 'http://localhost:3000', // Ensure this matches your React app's running URL
     actionTimeout: 5000,
   },
+  use: {
+    testIdAttribute: 'data-test-id'  // Ensure this matches your setup
+  }
 });

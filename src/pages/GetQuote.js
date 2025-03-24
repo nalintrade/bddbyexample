@@ -3,12 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const GetQuote = () => {
   const navigate = useNavigate();
-  const [vehicle, setVehicle] = useState({
-    make: "",
-    model: "",
-    year: "",
-    registration: ""
-  });
+  const [vehicle, setVehicle] = useState({ make: "", model: "", year: "", registration: "" });
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
@@ -17,9 +12,20 @@ const GetQuote = () => {
 
   const validate = () => {
     let newErrors = {};
+    const year = parseInt(vehicle.year, 10);
+    const currentYear = new Date().getFullYear();
+  
     if (!vehicle.make) newErrors.make = "Make is required";
     if (!vehicle.model) newErrors.model = "Model is required";
-    if (!vehicle.year || isNaN(vehicle.year)) newErrors.year = "Valid year is required";
+  
+    if (!vehicle.year || isNaN(year)) {
+      newErrors.year = "Year must be a valid number";
+    } else if (year < 1900) {
+      newErrors.year = "Vehicle year must be 1900 or later";
+    } else if (year > currentYear) {
+      newErrors.year = "Vehicle year cannot be in the future";
+    }
+  
     if (!vehicle.registration) newErrors.registration = "Registration number is required";
     return newErrors;
   };
@@ -34,26 +40,54 @@ const GetQuote = () => {
   };
 
   return (
-    <div className="quote-container">
-      <h2>Enter Vehicle Details</h2>
-      <form>
-        <label>Make:</label>
-        <input type="text" name="make" value={vehicle.make} onChange={handleChange} />
-        {errors.make && <span className="error">{errors.make}</span>}
+    <div className="quote-container" data-test-id="GetQuote-container">
+      <h2 data-test-id="GetQuote-heading">Enter Vehicle Details</h2>
+      <form data-test-id="GetQuote-form">
+        <label htmlFor="make">Make:</label>
+        <input
+          id="make"
+          type="text"
+          name="make"
+          value={vehicle.make}
+          onChange={handleChange}
+          data-test-id="GetQuote-makeInput"
+        />
+        {errors.make && <span className="error" data-test-id="GetQuote-makeError">{errors.make}</span>}
 
-        <label>Model:</label>
-        <input type="text" name="model" value={vehicle.model} onChange={handleChange} />
-        {errors.model && <span className="error">{errors.model}</span>}
+        <label htmlFor="model">Model:</label>
+        <input
+          id="model"
+          type="text"
+          name="model"
+          value={vehicle.model}
+          onChange={handleChange}
+          data-test-id="GetQuote-modelInput"
+        />
+        {errors.model && <span className="error" data-test-id="GetQuote-modelError">{errors.model}</span>}
 
-        <label>Year:</label>
-        <input type="text" name="year" value={vehicle.year} onChange={handleChange} />
-        {errors.year && <span className="error">{errors.year}</span>}
+        <label htmlFor="year">Year:</label>
+        <input
+          id="year"
+          type="text"
+          name="year"
+          value={vehicle.year}
+          onChange={handleChange}
+          data-test-id="GetQuote-yearInput"
+        />
+        {errors.year && <span className="error" data-test-id="GetQuote-yearError">{errors.year}</span>}
 
-        <label>Registration:</label>
-        <input type="text" name="registration" value={vehicle.registration} onChange={handleChange} />
-        {errors.registration && <span className="error">{errors.registration}</span>}
+        <label htmlFor="registration">Registration:</label>
+        <input
+          id="registration"
+          type="text"
+          name="registration"
+          value={vehicle.registration}
+          onChange={handleChange}
+          data-test-id="GetQuote-registrationInput"
+        />
+        {errors.registration && <span className="error" data-test-id="GetQuote-registrationError">{errors.registration}</span>}
 
-        <button type="button" onClick={handleNext}>Next</button>
+        <button type="button" onClick={handleNext} data-test-id="GetQuote-nextButton">Next</button>
       </form>
     </div>
   );

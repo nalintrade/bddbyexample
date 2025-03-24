@@ -3,11 +3,13 @@ import { useNavigate } from "react-router-dom";
 
 const VehicleUsage = () => {
   const navigate = useNavigate();
+
   const [usage, setUsage] = useState({
     annualMileage: "",
     primaryUse: "",
     parkingLocation: ""
   });
+
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
@@ -32,33 +34,62 @@ const VehicleUsage = () => {
   };
 
   return (
-    <div className="usage-container">
-      <h2>Enter Vehicle Usage Details</h2>
-      <form>
+    <div className="usage-container" data-test-id="VehicleUsage-container">
+      <h2 data-test-id="VehicleUsage-heading">Enter Vehicle Usage Details</h2>
+      <form data-test-id="VehicleUsage-form">
         <label>Annual Mileage:</label>
-        <input type="text" name="annualMileage" value={usage.annualMileage} onChange={handleChange} />
-        {errors.annualMileage && <span className="error">{errors.annualMileage}</span>}
+        <input
+          type="text"
+          name="annualMileage"
+          value={usage.annualMileage}
+          onChange={handleChange}
+          data-test-id="VehicleUsage-mileageInput"
+        />
+        {errors.annualMileage && <span className="error" data-test-id="VehicleUsage-mileageError">{errors.annualMileage}</span>}
 
         <label>Primary Use:</label>
-        <select name="primaryUse" value={usage.primaryUse} onChange={handleChange}>
+        <select
+          name="primaryUse"
+          value={usage.primaryUse}
+          onChange={handleChange}
+          data-test-id="VehicleUsage-primaryUseSelect"
+        >
           <option value="">Select</option>
           <option value="Commuting">Commuting</option>
           <option value="Personal">Personal</option>
           <option value="Business">Business</option>
         </select>
-        {errors.primaryUse && <span className="error">{errors.primaryUse}</span>}
-        <br />
+        {errors.primaryUse && <span className="error" data-test-id="VehicleUsage-primaryUseError">{errors.primaryUse}</span>}
+        <br/>
         <label>Parking Location:</label>
-        <select name="parkingLocation" value={usage.parkingLocation} onChange={handleChange}>
+        <select
+          name="parkingLocation"
+          value={usage.parkingLocation}
+          onChange={handleChange}
+          data-test-id="VehicleUsage-parkingLocationSelect"
+        >
           <option value="">Select</option>
           <option value="Garage">Garage</option>
           <option value="Driveway">Driveway</option>
           <option value="Street">Street</option>
         </select>
-        <br />
-        {errors.parkingLocation && <span className="error">{errors.parkingLocation}</span>}
-<button style={{ marginBottom: "10px" }} onClick={() => navigate("/get-quote", { state: { usage } })}>Back</button>
-        <button type="button" onClick={handleNext}>Next</button>
+        {errors.parkingLocation && <span className="error" data-test-id="VehicleUsage-parkingLocationError">{errors.parkingLocation}</span>}
+        <br/>
+        <button
+          style={{ marginBottom: "10px" }}
+          onClick={() => navigate("/get-quote", { state: { usage } })}
+          data-test-id="VehicleUsage-backButton"
+        >
+          Back
+        </button>
+
+        <button
+          type="button"
+          onClick={handleNext}
+          data-test-id="VehicleUsage-nextButton"
+        >
+          Next
+        </button>
       </form>
     </div>
   );
