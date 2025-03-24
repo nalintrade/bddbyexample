@@ -14,15 +14,15 @@ class World {
   }
 
   async teardown() {
-    if (this.page) {
-      await this.page.close();
-    }
-    if (this.context) {
-      await this.context.close();
-    }
-    if (this.browser) {
-      await this.browser.close();
-      this.browser = null; // Ensure it does not hang
+    try {
+      if (this.page) await this.page.close();
+      if (this.context) await this.context.close();
+      if (this.browser) {
+        await this.browser.close();
+        this.browser = null;
+      }
+    } catch (err) {
+      console.error("Error during teardown:", err);
     }
   }
 }

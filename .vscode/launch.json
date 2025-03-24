@@ -1,6 +1,7 @@
 {
     "version": "0.2.0",
     "configurations": [
+      
       {
         "type": "node",
         "request": "launch",
@@ -15,7 +16,7 @@
         "internalConsoleOptions": "neverOpen",
         "runtimeArgs": ["--inspect"],
         "env": {
-          "BASE_URL": "http://localhost:4000"
+          "BASE_URL": "http://localhost:3000"
         },
         "skipFiles": ["<node_internals>/**"]
       }
