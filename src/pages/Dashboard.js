@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { logoutUser } from "../auth/auth";
+import { logoutUser } from "../auth/auth.js";
 import { Link } from "react-router-dom"; // ✅ Ensure this is imported
 import "./Dashboard.css";
 // import bannerImage from "../assets/DashBoardBanner.png"; 

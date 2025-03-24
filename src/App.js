@@ -1,16 +1,16 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
-import Dashboard from "./pages/Dashboard";
-import Home from "./pages/Home";
-import Profile from "./pages/Profile";
-import GetQuote from "./pages/GetQuote";
-import VehicleUsage from "./pages/VehicleUsage";
-import CoverageSelection from "./pages/CoverageSelection";
-import QuoteSummary from "./pages/QuoteSummary";
-import PolicyApplication from "./pages/PolicyApplication";
-import DriverInformation from "./pages/DriverInformation";
+import Login from "./pages/Login.js";
+import Signup from "./pages/Signup.js";
+import Dashboard from "./pages/Dashboard.js";
+import Home from "./pages/Home.js";
+import Profile from "./pages/Profile.js";
+import GetQuote from "./pages/GetQuote.js";
+import VehicleUsage from "./pages/VehicleUsage.js";
+import CoverageSelection from "./pages/CoverageSelection.js";
+import QuoteSummary from "./pages/QuoteSummary.js";
+import PolicyApplication from "./pages/PolicyApplication.js";
+import DriverInformation from "./pages/DriverInformation.js";
 
 
 
