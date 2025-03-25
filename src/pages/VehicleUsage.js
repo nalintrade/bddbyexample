@@ -34,51 +34,51 @@ const VehicleUsage = () => {
   };
 
   return (
-    <div className="usage-container" data-test-id="VehicleUsage-container">
-      <h2 data-test-id="VehicleUsage-heading">Enter Vehicle Usage Details</h2>
-      <form data-test-id="VehicleUsage-form">
+    <div className="usage-container" data-testid="VehicleUsage-container">
+      <h2 data-testid="VehicleUsage-heading">Enter Vehicle Usage Details</h2>
+      <form data-testid="VehicleUsage-form">
         <label>Annual Mileage:</label>
         <input
           type="text"
           name="annualMileage"
           value={usage.annualMileage}
           onChange={handleChange}
-          data-test-id="VehicleUsage-mileageInput"
+          data-testid="VehicleUsage-mileageInput"
         />
-        {errors.annualMileage && <span className="error" data-test-id="VehicleUsage-mileageError">{errors.annualMileage}</span>}
+        {errors.annualMileage && <span className="error" data-testid="VehicleUsage-mileageError">{errors.annualMileage}</span>}
 
         <label>Primary Use:</label>
         <select
           name="primaryUse"
           value={usage.primaryUse}
           onChange={handleChange}
-          data-test-id="VehicleUsage-primaryUseSelect"
+          data-testid="VehicleUsage-primaryUseSelect"
         >
           <option value="">Select</option>
           <option value="Commuting">Commuting</option>
           <option value="Personal">Personal</option>
           <option value="Business">Business</option>
         </select>
-        {errors.primaryUse && <span className="error" data-test-id="VehicleUsage-primaryUseError">{errors.primaryUse}</span>}
+        {errors.primaryUse && <span className="error" data-testid="VehicleUsage-primaryUseError">{errors.primaryUse}</span>}
         <br/>
         <label>Parking Location:</label>
         <select
           name="parkingLocation"
           value={usage.parkingLocation}
           onChange={handleChange}
-          data-test-id="VehicleUsage-parkingLocationSelect"
+          data-testid="VehicleUsage-parkingLocationSelect"
         >
           <option value="">Select</option>
           <option value="Garage">Garage</option>
           <option value="Driveway">Driveway</option>
           <option value="Street">Street</option>
         </select>
-        {errors.parkingLocation && <span className="error" data-test-id="VehicleUsage-parkingLocationError">{errors.parkingLocation}</span>}
+        {errors.parkingLocation && <span className="error" data-testid="VehicleUsage-parkingLocationError">{errors.parkingLocation}</span>}
         <br/>
         <button
           style={{ marginBottom: "10px" }}
           onClick={() => navigate("/get-quote", { state: { usage } })}
-          data-test-id="VehicleUsage-backButton"
+          data-testid="VehicleUsage-backButton"
         >
           Back
         </button>
@@ -86,7 +86,7 @@ const VehicleUsage = () => {
         <button
           type="button"
           onClick={handleNext}
-          data-test-id="VehicleUsage-nextButton"
+          data-testid="VehicleUsage-nextButton"
         >
           Next
         </button>

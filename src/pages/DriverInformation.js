@@ -40,11 +40,11 @@ const DriverInformation = () => {
   };
 
   return (
-    <div className="driver-info-container" data-test-id="DriverInfo-container">
-      <h2 data-test-id="DriverInfo-heading">Driver Information</h2>
+    <div className="driver-info-container" data-testid="DriverInfo-container">
+      <h2 data-testid="DriverInfo-heading">Driver Information</h2>
       <br/>
 
-      <div className="form-group" data-test-id="DriverInfo-licenseGroup">
+      <div className="form-group" data-testid="DriverInfo-licenseGroup">
         <label htmlFor="licenseYears">License Duration (years)</label>
         <input
           type="number"
@@ -52,11 +52,11 @@ const DriverInformation = () => {
           name="licenseYears"
           value={driverInfo.licenseYears}
           onChange={handleChange}
-          data-test-id="DriverInfo-licenseInput"
+          data-testid="DriverInfo-licenseInput"
         />
       </div>
 
-      <div className="form-group" data-test-id="DriverInfo-claimsGroup">
+      <div className="form-group" data-testid="DriverInfo-claimsGroup">
         <label htmlFor="claimsInLastFiveYears">Claims in Last 5 Years</label>
         <input
           type="number"
@@ -64,13 +64,13 @@ const DriverInformation = () => {
           name="claimsInLastFiveYears"
           value={driverInfo.claimsInLastFiveYears}
           onChange={handleChange}
-          data-test-id="DriverInfo-claimsInput"
+          data-testid="DriverInfo-claimsInput"
         />
       </div>
 
-      <div className="navigation-buttons" data-test-id="DriverInfo-navigation">
-        <button className="nav-btn" onClick={handleBack} data-test-id="DriverInfo-backButton">Back</button>
-        <button className="nav-btn" onClick={handleNext} data-test-id="DriverInfo-nextButton">Next</button>
+      <div className="navigation-buttons" data-testid="DriverInfo-navigation">
+        <button className="nav-btn" onClick={handleBack} data-testid="DriverInfo-backButton">Back</button>
+        <button className="nav-btn" onClick={handleNext} data-testid="DriverInfo-nextButton">Next</button>
       </div>
     </div>
   );

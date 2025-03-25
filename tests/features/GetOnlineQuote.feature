@@ -59,21 +59,45 @@ Feature: Vehicle Insurance Quotation
     When I provide the following driving history:
       | License Duration | Claims History               |
       | 5+ years         | No claims in the past 5 years |
-    And I continue to the next step
+    And I continue to the next step in driver information
     Then I should arrive at the coverage selection step
 
   @happy-path @coverage
   Scenario: Select coverage and get quote
+    When I enter "Toyota" as the make
+    And I enter "Corolla" as the model
+    And I enter "2020" as the year
+    And I enter "AB12 XYZ" as the registration number
+    And I continue to the next step
+    Given I have submitted vehicle usage details
+    When I provide the following driving history:
+      | License Duration | Claims History               |
+      | 5+ years         | No claims in the past 5 years |
+    And I continue to the next step in driver information
     Given I have provided driver information
     When I select "Comprehensive" as the coverage type
     And I add "Roadside Assistance" as an add-on
-    And I continue to the next step
+    And I continue to the next step to premium estimate details
     Then I should see a premium estimate
-    And I should have the option to save the quote
+    And I should have the option to email the quote
 
   @business-goal @happy-path @quote-summary
   Scenario: Proceed to policy application
-    Given I have reviewed my quotation
+    When I enter "Toyota" as the make
+    And I enter "Corolla" as the model
+    And I enter "2020" as the year
+    And I enter "AB12 XYZ" as the registration number
+    And I continue to the next step
+    Given I have submitted vehicle usage details
+    When I provide the following driving history:
+      | License Duration | Claims History               |
+      | 5+ years         | No claims in the past 5 years |
+    And I continue to the next step in driver information
+    Given I have provided driver information
+    When I select "Comprehensive" as the coverage type
+    And I add "Roadside Assistance" as an add-on
+    And I continue to the next step to premium estimate details
+    Then I should see a premium estimate
     When I choose to proceed with the application
     Then I should arrive at the policy application step
     And the quote details should be pre-filled

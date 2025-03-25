@@ -25,26 +25,26 @@ const CoverageSelection = () => {
   };
 
   return (
-    <div className="coverage-selection-container" data-test-id="Coverage-container">
-      <h2 data-test-id="Coverage-heading">Add Optional Benefits</h2>
-      <p data-test-id="Coverage-description">
+    <div className="coverage-selection-container" data-testid="Coverage-container">
+      <h2 data-testid="Coverage-heading">Add Optional Benefits</h2>
+      <p data-testid="Coverage-description">
         Upgrade your cover with these optional extras. If you change your mind,
         you can add or remove them from your quote later.
       </p>
 
-      <div className="benefits-box" data-test-id="Coverage-benefitsBox">
-        <table className="benefits-table" data-test-id="Coverage-benefitsTable">
+      <div className="benefits-box" data-testid="Coverage-benefitsBox">
+        <table className="benefits-table" data-testid="Coverage-benefitsTable">
           <tbody>
             {options.map((option, index) => (
-              <tr key={index} className="benefit-row" data-test-id={`Coverage-benefitRow-${index}`}>
-                <td className="benefit-text" data-test-id={`Coverage-benefitText-${index}`}>{option}</td>
+              <tr key={index} className="benefit-row" data-testid={`Coverage-benefitRow-${index}`}>
+                <td className="benefit-text" data-testid={`Coverage-benefitText-${index}`}>{option}</td>
                 <td className="benefit-checkbox-cell">
                   <input
                     type="checkbox"
                     className="benefit-checkbox"
                     checked={selectedOptions[option] || false}
                     onChange={() => handleChange(option)}
-                    data-test-id={`Coverage-checkbox-${index}`}
+                    data-testid={`Coverage-checkbox-${index}`}
                   />
                 </td>
               </tr>
@@ -53,18 +53,18 @@ const CoverageSelection = () => {
         </table>
       </div>
 
-      <div className="navigation-buttons" data-test-id="Coverage-navigation">
+      <div className="navigation-buttons" data-testid="Coverage-navigation">
         <button
           className="nav-btn"
           onClick={() => navigate("/driver-information", { state: { selectedOptions } })}
-          data-test-id="Coverage-backButton"
+          data-testid="Coverage-backButton"
         >
           Back
         </button>
         <button
           className="nav-btn"
           onClick={() => navigate("/quote-summary", { state: { selectedOptions } })}
-          data-test-id="Coverage-nextButton"
+          data-testid="Coverage-nextButton"
         >
           Next
         </button>

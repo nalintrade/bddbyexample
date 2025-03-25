@@ -26,29 +26,29 @@ const QuoteSummary = () => {
   };
 
   return (
-    <div className="quote-summary-container" data-test-id="QuoteSummary-container">
-      <h2 data-test-id="QuoteSummary-heading">Your Quote</h2>
-      <p data-test-id="QuoteSummary-quoteNumber">Quote number: {dummyQuote.quoteNumber}</p>
+    <div className="quote-summary-container" data-testid="QuoteSummary-container">
+      <h2 data-testid="QuoteSummary-heading">Your Quote</h2>
+      <p data-testid="QuoteSummary-quoteNumber">Quote number: {dummyQuote.quoteNumber}</p>
 
-      <div className="quote-box" data-test-id="QuoteSummary-quoteBox">
-        <span className="price" data-test-id="QuoteSummary-price">{dummyQuote.price}</span>
+      <div className="quote-box" data-testid="QuoteSummary-quoteBox">
+        <span className="price" data-testid="QuoteSummary-price">{dummyQuote.price}</span>
         <span style={{ margin: "0 15px" }}></span>
-        <select data-test-id="QuoteSummary-frequencySelect">
+        <select data-testid="QuoteSummary-frequencySelect">
           <option>{dummyQuote.frequency}</option>
         </select>
         <br /><br />
-        <button data-test-id="QuoteSummary-emailButton">Email Quote</button>
+        <button data-testid="QuoteSummary-emailButton">Email Quote</button>
       </div>
 
-      <h3 data-test-id="QuoteSummary-coverageHeading">See what’s covered</h3>
+      <h3 data-testid="QuoteSummary-coverageHeading">See what’s covered</h3>
 
-      <div className="benefits-box" style={{ textAlign: "left", padding: "15px", border: "1px solid #ccc" }} data-test-id="QuoteSummary-benefitsBox">
+      <div className="benefits-box" style={{ textAlign: "left", padding: "15px", border: "1px solid #ccc" }} data-testid="QuoteSummary-benefitsBox">
         {dummyQuote.benefits.map((benefit, index) => (
           <div
             key={index}
             className="benefit-item"
             style={{ display: "flex", justifyContent: "space-between" }}
-            data-test-id={`QuoteSummary-benefit-${index}`}
+            data-testid={`QuoteSummary-benefit-${index}`}
           >
             <span>{benefit}</span>
             <span className="tick-mark">✔</span>
@@ -56,17 +56,17 @@ const QuoteSummary = () => {
         ))}
       </div>
 
-      <div className="navigation-buttons" style={{ marginTop: "20px" }} data-test-id="QuoteSummary-navigation">
+      <div className="navigation-buttons" style={{ marginTop: "20px" }} data-testid="QuoteSummary-navigation">
         <button
           style={{ marginBottom: "10px" }}
           onClick={() => navigate("/coverage-selection")}
-          data-test-id="QuoteSummary-backButton"
+          data-testid="QuoteSummary-backButton"
         >
           Back
         </button>
         <button
           onClick={() => navigate("/policy-application")}
-          data-test-id="QuoteSummary-proceedButton"
+          data-testid="QuoteSummary-proceedButton"
         >
           Proceed to Application
         </button>

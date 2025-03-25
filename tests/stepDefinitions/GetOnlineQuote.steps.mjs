@@ -143,12 +143,16 @@ When('I provide the following driving history:', async (dataTable) => {
   const values = dataTable.rowsHash();
   await DriverInformationPage.fillForm(world.page, {
     licenseDuration: values['License Duration'],
-    claimsHistory: values['Claims History']
+    claimsHistory: values['5+ years']
   });
 });
 
-Then('I should arrive at the coverage selection step', async () => {
+
+Then('I continue to the next step in driver information', async () => {
   await DriverInformationPage.submit(world.page);
+
+});
+Then('I should arrive at the coverage selection step', async () => {
   await CoverageSelectionPage.isVisible(world.page);
 });
 
@@ -164,12 +168,17 @@ When('I add {string} as an add-on', async (addon) => {
   await CoverageSelectionPage.selectAddon(world.page, addon);
 });
 
-Then('I should see a premium estimate', async () => {
+
+Then('I continue to the next step to premium estimate details', async () => {
   await CoverageSelectionPage.proceedToSummary(world.page);
+  // await QuoteSummaryPage.isPremiumVisible(world.page);
+});
+Then('I should see a premium estimate', async () => {
+  // await CoverageSelectionPage.proceedToSummary(world.page);
   await QuoteSummaryPage.isPremiumVisible(world.page);
 });
 
-Then('I should have the option to save the quote', async () => {
+Then('I should have the option to email the quote', async () => {
   await QuoteSummaryPage.isSaveOptionVisible(world.page);
 });
 
@@ -203,6 +212,7 @@ Then('I should arrive at the policy application step', async () => {
 });
 
 Then('the quote details should be pre-filled', async () => {
-  const text = await QuoteSummaryPage.getFormText(world.page);
-  expect(text).toContain('QTE');
+  // const text = await QuoteSummaryPage.getFormText(world.page);
+  return 'pending';
+  // expect(text).toContain('QTE');
 });

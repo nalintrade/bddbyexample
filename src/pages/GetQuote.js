@@ -40,9 +40,9 @@ const GetQuote = () => {
   };
 
   return (
-    <div className="quote-container" data-test-id="GetQuote-container">
-      <h2 data-test-id="GetQuote-heading">Enter Vehicle Details</h2>
-      <form data-test-id="GetQuote-form">
+    <div className="quote-container" data-testid="GetQuote-container">
+      <h2 data-testid="GetQuote-heading">Enter Vehicle Details</h2>
+      <form data-testid="GetQuote-form">
         <label htmlFor="make">Make:</label>
         <input
           id="make"
@@ -50,9 +50,9 @@ const GetQuote = () => {
           name="make"
           value={vehicle.make}
           onChange={handleChange}
-          data-test-id="GetQuote-makeInput"
+          data-testid="GetQuote-makeInput"
         />
-        {errors.make && <span className="error" data-test-id="GetQuote-makeError">{errors.make}</span>}
+        {errors.make && <span className="error" data-testid="GetQuote-makeError">{errors.make}</span>}
 
         <label htmlFor="model">Model:</label>
         <input
@@ -61,9 +61,9 @@ const GetQuote = () => {
           name="model"
           value={vehicle.model}
           onChange={handleChange}
-          data-test-id="GetQuote-modelInput"
+          data-testid="GetQuote-modelInput"
         />
-        {errors.model && <span className="error" data-test-id="GetQuote-modelError">{errors.model}</span>}
+        {errors.model && <span className="error" data-testid="GetQuote-modelError">{errors.model}</span>}
 
         <label htmlFor="year">Year:</label>
         <input
@@ -72,9 +72,9 @@ const GetQuote = () => {
           name="year"
           value={vehicle.year}
           onChange={handleChange}
-          data-test-id="GetQuote-yearInput"
+          data-testid="GetQuote-yearInput"
         />
-        {errors.year && <span className="error" data-test-id="GetQuote-yearError">{errors.year}</span>}
+        {errors.year && <span className="error" data-testid="GetQuote-yearError">{errors.year}</span>}
 
         <label htmlFor="registration">Registration:</label>
         <input
@@ -83,11 +83,11 @@ const GetQuote = () => {
           name="registration"
           value={vehicle.registration}
           onChange={handleChange}
-          data-test-id="GetQuote-registrationInput"
+          data-testid="GetQuote-registrationInput"
         />
-        {errors.registration && <span className="error" data-test-id="GetQuote-registrationError">{errors.registration}</span>}
+        {errors.registration && <span className="error" data-testid="GetQuote-registrationError">{errors.registration}</span>}
 
-        <button type="button" onClick={handleNext} data-test-id="GetQuote-nextButton">Next</button>
+        <button type="button" onClick={handleNext} data-testid="GetQuote-nextButton">Next</button>
       </form>
     </div>
   );
