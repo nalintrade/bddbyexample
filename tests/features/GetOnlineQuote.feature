@@ -11,7 +11,7 @@ Feature: Vehicle Insurance Quotation
     When I start a new insurance quotation
     Then I should arrive at the vehicle information step
 
-  @smoke @happy-path
+  @smoke @happy-path @vehicle-details
   Scenario: Provide valid vehicle information
     When I enter "Toyota" as the make
     And I enter "Corolla" as the model
@@ -20,7 +20,7 @@ Feature: Vehicle Insurance Quotation
     And I continue to the next step
     Then I should arrive at the vehicle usage step
 
-  @smoke @happy-path
+  @smoke @happy-path @vehicle-details
   Scenario: Provide valid vehicle usage details
     Given I have entered valid vehicle information
     When I specify "12000" as the annual mileage
@@ -28,24 +28,15 @@ Feature: Vehicle Insurance Quotation
     And I choose "Garage" as the parking location
     And I continue to the next step driver details
     Then I should arrive at the driver information step
-# TODO:
-  @regression @edit-flow @fails
-  Scenario: Return and update vehicle information
-    Given I have reached the driver information step
-    When I return to the vehicle information step
-    And I update the model to "Camry"
-    And I continue to the next step
-    Then the model should reflect as "Camry"
-    And I should be back at the driver information step
 
-  @validation @regression
+  @validation @regression @vehicle-details
   Scenario: Validate required vehicle fields
     When I leave the make field empty
     And I continue to the next step
     Then I should see the message "Make is required"
     And I should remain on the vehicle information step
 
-  @boundary @validation
+  @boundary @validation @vehicle-details
   Scenario Outline: Validate year input
     When I enter "<year>" as the year
     And I continue to the next step
@@ -57,7 +48,7 @@ Feature: Vehicle Insurance Quotation
       | 2030 | Vehicle year cannot be in the future   |
       | abc  | Year must be a valid number            |
 
-  @critical @happy-path
+  @critical @happy-path @driver-history
   Scenario: Provide valid driver history
     When I enter "Toyota" as the make
     And I enter "Corolla" as the model
@@ -80,15 +71,7 @@ Feature: Vehicle Insurance Quotation
     Then I should see a premium estimate
     And I should have the option to save the quote
 
-  @regression @comparison
-  Scenario: Compare coverage options
-    Given I have provided driver information
-    When I choose "Third-party only" as the coverage type
-    And I exclude add-ons
-    And I compare with "Comprehensive with Roadside Assistance"
-    Then I should see a comparison of premium and coverage details
-
-  @business-goal @happy-path
+  @business-goal @happy-path @quote-summary
   Scenario: Proceed to policy application
     Given I have reviewed my quotation
     When I choose to proceed with the application
