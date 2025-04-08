@@ -29,7 +29,7 @@ This app mimics a **Vehicle Insurance Quotation Flow** and is designed to demons
 ## 🚦 Getting Started
 
 ### 🧾 Prerequisites
-- Node.js v18+ recommended (v23.10+ tested)
+- Node.js v23.10+ recommended (v23.10+ tested)
 - Git
 - Visual Studio Code (with Gherkin plugin)
 
